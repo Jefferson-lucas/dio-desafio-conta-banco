@@ -1,5 +1,5 @@
-import java.util.Scanner;
 import java.util.Locale;
+import java.util.Scanner;
 
 public class ContaTerminal {
     public static void main(String[] args) throws Exception {
@@ -11,21 +11,25 @@ public class ContaTerminal {
         String nomeCliente;
         double saldo;
 
-        System.out.println("Por favor digite a agência");
+        System.out.println("Por favor digite a agência: ");
         agencia = scanner.next();
 
-        System.out.println("Digite o numero da conta");
+        System.out.println("Digite o numero da conta: ");
         numeroConta = scanner.nextInt();
 
-        System.out.println("Digite seu nome");
-        nomeCliente = scanner.next();
+        System.out.println("Digite seu nome: ");
+        nomeCliente = scanner.nextLine();
 
-        System.out.println("Digite o saldo disponível");
+        //Esvaziando o buffer do scanner para não dar erro quando nome contiver espaços
+        scanner.nextLine();
+
+        System.out.println("Digite o saldo disponivel: ");
+        scanner.reset();
         saldo = scanner.nextDouble();
         
         scanner.close();
 
-        System.out.println("Olá " + nomeCliente + ", obrigado por criar uma conta em nosso banco, sua agência é: " + agencia + ", conta " + 
+        System.out.print("Olá " + nomeCliente + ", obrigado por criar uma conta em nosso banco, sua agência é: " + agencia + ", conta " + 
                             numeroConta + " e o seu saldo " + saldo + " já está disponível para saque");
         
     }
